@@ -52,7 +52,6 @@ namespace DistributionManager
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "User Name";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -62,6 +61,7 @@ namespace DistributionManager
             this.button1.TabIndex = 2;
             this.button1.Text = "New Distribution Request";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -71,6 +71,7 @@ namespace DistributionManager
             this.button2.TabIndex = 3;
             this.button2.Text = "Draft Distribution Requests";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 

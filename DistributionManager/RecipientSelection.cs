@@ -51,6 +51,12 @@ namespace DistributionManager
             return (name, surname, position);
         }
 
+        private void GenerateRequestNumber()
+        {
+            int currentYear = DateTime.Now.Year % 100;
+
+        }
+
         private void Recipient_Selection_Load(object sender, EventArgs e)
         {
             Connector.CheckForConnection();
@@ -64,12 +70,12 @@ namespace DistributionManager
             positionLbl.Text = position;
         }
 
-        private (string, string) FindLegalDataByEdrpou(int edrpou)
+        private (string, string, string, string) FindLegalDataByEdrpou(int edrpou)
         {
-            SqlCommand legalDataCommand = new SqlCommand($"SELECT LegalNameEnglish, LegalAddressUkr FROM Recipient WHERE EDRPOUcode = {edrpou}", Connector.Sql_Connection);
+            SqlCommand legalDataCommand = new SqlCommand($"SELECT LegalNameEnglish, LegalNameUkr, LegalAddressEnglish, LegalAddressUkr FROM Recipient WHERE EDRPOUcode = {edrpou}", Connector.Sql_Connection);
             SqlDataReader legalDataReader = null;
 
-            string legalNameEng = "", legalAddressUkr = "";
+            string legalNameEng = "", legalNameUkr = "", legalAddressEng = "", legalAddressUkr = "";
 
             try
             {
@@ -77,6 +83,8 @@ namespace DistributionManager
                 if (legalDataReader.Read())
                 {
                     legalNameEng = Convert.ToString(legalDataReader["LegalNameEnglish"]);
+                    legalNameUkr = Convert.ToString(legalDataReader["LegalNameUkr"]);
+                    legalAddressEng = Convert.ToString(legalDataReader["LegalAddressEnglish"]);
                     legalAddressUkr = Convert.ToString(legalDataReader["LegalAddressUkr"]);
                 }
                 else
@@ -92,14 +100,16 @@ namespace DistributionManager
                     legalDataReader.Close();
             }
 
-            return (legalNameEng, legalAddressUkr);
+            return (legalNameEng, legalNameUkr, legalAddressEng, legalAddressUkr);
         }
 
         private void FindLegalDataBtn_Click(object sender, EventArgs e)
         {
             int.TryParse(edrpouTextBox.Text, out int edrpou);
-            (string legalNameEng, string legalAddressUkr) = FindLegalDataByEdrpou(edrpou);
+            (string legalNameEng, string legalNameUkr, string legalAddressEng, string legalAddressUkr) = FindLegalDataByEdrpou(edrpou);
             legalNameEngTextBox.Text = legalNameEng;
+            legalNameUkrTextBox.Text = legalNameUkr;
+            legalAddressEngTextBox.Text = legalAddressEng;
             legalAddressUkrTextBox.Text = legalAddressUkr;
         }
     }

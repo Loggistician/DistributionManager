@@ -47,6 +47,7 @@ namespace DistributionManager
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -133,7 +134,7 @@ namespace DistributionManager
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 38);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Enter factual delivery address";
+            this.label3.Text = "Enter factual delivery address:";
             // 
             // textBox1
             // 
@@ -165,9 +166,9 @@ namespace DistributionManager
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(29, 189);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 13);
+            this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Convoy departure date:";
+            this.label5.Text = "Departure date:";
             // 
             // textBox3
             // 
@@ -224,11 +225,20 @@ namespace DistributionManager
             this.button1.Text = "Back to beneficiary selection";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Transportation_Details
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(151, 79);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(221, 20);
+            this.textBox4.TabIndex = 23;
+            // 
+            // TransportationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
@@ -247,7 +257,8 @@ namespace DistributionManager
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
-            this.Name = "Transportation_Details";
+            this.Name = "TransportationDetails";
+            this.Tag = "";
             this.Text = "Transportation_Details";
             this.Load += new System.EventHandler(this.Transportation_Details_Load);
             this.ResumeLayout(false);
@@ -275,5 +286,6 @@ namespace DistributionManager
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

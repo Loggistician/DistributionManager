@@ -49,7 +49,11 @@ namespace DistributionManager
             this.button2 = new System.Windows.Forms.Button();
             this.findLegalDataBtn = new System.Windows.Forms.Button();
             this.legalNameEngTextBox = new System.Windows.Forms.TextBox();
+            this.legalAddressEngTextBox = new System.Windows.Forms.TextBox();
+            this.legalNameUkrTextBox = new System.Windows.Forms.TextBox();
             this.legalAddressUkrTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -152,7 +156,7 @@ namespace DistributionManager
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 299);
+            this.textBox2.Location = new System.Drawing.Point(96, 312);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(664, 42);
@@ -161,7 +165,7 @@ namespace DistributionManager
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 299);
+            this.label11.Location = new System.Drawing.Point(6, 312);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 12;
@@ -170,7 +174,7 @@ namespace DistributionManager
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(93, 344);
+            this.label12.Location = new System.Drawing.Point(93, 357);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(295, 13);
             this.label12.TabIndex = 13;
@@ -179,20 +183,20 @@ namespace DistributionManager
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 208);
+            this.label13.Location = new System.Drawing.Point(93, 192);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 13);
+            this.label13.Size = new System.Drawing.Size(89, 13);
             this.label13.TabIndex = 16;
-            this.label13.Text = "Legal Name:";
+            this.label13.Text = "Legal Name Eng:";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(240, 208);
+            this.label14.Location = new System.Drawing.Point(398, 192);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 13);
+            this.label14.Size = new System.Drawing.Size(99, 13);
             this.label14.TabIndex = 18;
-            this.label14.Text = "Legal Address:";
+            this.label14.Text = "Legal Address Eng:";
             // 
             // button1
             // 
@@ -224,30 +228,72 @@ namespace DistributionManager
             // 
             // legalNameEngTextBox
             // 
-            this.legalNameEngTextBox.Location = new System.Drawing.Point(96, 201);
+            this.legalNameEngTextBox.Location = new System.Drawing.Point(96, 208);
             this.legalNameEngTextBox.Multiline = true;
             this.legalNameEngTextBox.Name = "legalNameEngTextBox";
             this.legalNameEngTextBox.ReadOnly = true;
             this.legalNameEngTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.legalNameEngTextBox.Size = new System.Drawing.Size(138, 92);
+            this.legalNameEngTextBox.Size = new System.Drawing.Size(292, 35);
             this.legalNameEngTextBox.TabIndex = 25;
+            // 
+            // legalAddressEngTextBox
+            // 
+            this.legalAddressEngTextBox.Location = new System.Drawing.Point(401, 208);
+            this.legalAddressEngTextBox.Multiline = true;
+            this.legalAddressEngTextBox.Name = "legalAddressEngTextBox";
+            this.legalAddressEngTextBox.ReadOnly = true;
+            this.legalAddressEngTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.legalAddressEngTextBox.Size = new System.Drawing.Size(359, 35);
+            this.legalAddressEngTextBox.TabIndex = 26;
+            // 
+            // legalNameUkrTextBox
+            // 
+            this.legalNameUkrTextBox.Location = new System.Drawing.Point(96, 271);
+            this.legalNameUkrTextBox.Multiline = true;
+            this.legalNameUkrTextBox.Name = "legalNameUkrTextBox";
+            this.legalNameUkrTextBox.ReadOnly = true;
+            this.legalNameUkrTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.legalNameUkrTextBox.Size = new System.Drawing.Size(292, 35);
+            this.legalNameUkrTextBox.TabIndex = 27;
             // 
             // legalAddressUkrTextBox
             // 
-            this.legalAddressUkrTextBox.Location = new System.Drawing.Point(323, 201);
+            this.legalAddressUkrTextBox.Location = new System.Drawing.Point(401, 271);
             this.legalAddressUkrTextBox.Multiline = true;
             this.legalAddressUkrTextBox.Name = "legalAddressUkrTextBox";
             this.legalAddressUkrTextBox.ReadOnly = true;
             this.legalAddressUkrTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.legalAddressUkrTextBox.Size = new System.Drawing.Size(138, 92);
-            this.legalAddressUkrTextBox.TabIndex = 26;
+            this.legalAddressUkrTextBox.Size = new System.Drawing.Size(359, 35);
+            this.legalAddressUkrTextBox.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(93, 255);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Legal Name Ukr:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(398, 255);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 13);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Legal Address Ukr:";
             // 
             // RecipientSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.legalAddressUkrTextBox);
+            this.Controls.Add(this.legalNameUkrTextBox);
+            this.Controls.Add(this.legalAddressEngTextBox);
             this.Controls.Add(this.legalNameEngTextBox);
             this.Controls.Add(this.findLegalDataBtn);
             this.Controls.Add(this.button2);
@@ -298,6 +344,10 @@ namespace DistributionManager
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button findLegalDataBtn;
         private System.Windows.Forms.TextBox legalNameEngTextBox;
+        private System.Windows.Forms.TextBox legalAddressEngTextBox;
+        private System.Windows.Forms.TextBox legalNameUkrTextBox;
         private System.Windows.Forms.TextBox legalAddressUkrTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
     }
 }
