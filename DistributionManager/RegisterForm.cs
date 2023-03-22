@@ -25,7 +25,8 @@ namespace DistributionManager
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
-            Email = emailBox.Text;
+            //Email = emailBox.Text; TODO
+            Email = "test@gmail.com";
         }
 
         private void nameLbl_Click(object sender, EventArgs e)
