@@ -70,9 +70,9 @@ namespace DistributionManager
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(257, 54);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(226, 13);
+            this.label4.Size = new System.Drawing.Size(223, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "You have not items in your distribution request.";
+            this.label4.Text = "You have no items in your distribution request.";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button1
