@@ -22,14 +22,10 @@ namespace DistributionManager
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NewDistributionRequestBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            new RecipientSelection().Show();
+            Hide();
         }
     }
 }

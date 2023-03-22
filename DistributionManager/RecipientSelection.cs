@@ -224,8 +224,8 @@ namespace DistributionManager
 
         private void BackToMenuBtn_Click(object sender, EventArgs e)
         {
-            Close();
             new MainMenuForm().Show();
+            //Hide();
         }
     }
 }
