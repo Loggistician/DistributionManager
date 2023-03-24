@@ -15,11 +15,9 @@ namespace DistributionManager
 
         private void FillGridWithDraftsByUserEmail(string email)
         {
-            SqlCommand allDraftsCommand = new SqlCommand($"SELECT RequestNumber, Status FROM DistributionRequest INNER JOIN Employee ON DistributionRequest.EmployeeId = Employee.EmployeeId WHERE Email = '{email}'", Connector.Sql_Connection);
-
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter(allDraftsCommand);
+                SqlDataAdapter da = new SqlDataAdapter($"SELECT RequestNumber, Status FROM DistributionRequest INNER JOIN Employee ON DistributionRequest.EmployeeId = Employee.EmployeeId WHERE Email = '{email}'", Connector.Sql_Connection);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 draftDataGridView.DataSource = dt;
@@ -34,9 +32,7 @@ namespace DistributionManager
         private void DraftDistributionRequests_Load(object sender, EventArgs e)
         {
             Connector.CheckForConnection();
-            FillGridWithDraftsByUserEmail(RegisterForm.Email);
+            FillGridWithDraftsByUserEmail("test@gmail.com");
         }
-
-
     }
 }

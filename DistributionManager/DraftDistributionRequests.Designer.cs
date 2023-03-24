@@ -34,6 +34,7 @@
             // 
             // draftDataGridView
             // 
+            this.draftDataGridView.AllowUserToOrderColumns = true;
             this.draftDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.draftDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.draftDataGridView.Location = new System.Drawing.Point(0, 0);
