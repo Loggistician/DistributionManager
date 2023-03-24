@@ -30,14 +30,14 @@ namespace DistributionManager
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.teral = new System.Windows.Forms.RadioButton();
+            this.otherRadioButton = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.Yes = new System.Windows.Forms.RadioButton();
+            this.yesRadioButton = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.factualDeliveryLbl = new System.Windows.Forms.Label();
+            this.factualDeliveryAddressTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,7 +47,9 @@ namespace DistributionManager
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.deliveryTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -59,29 +61,30 @@ namespace DistributionManager
             this.label1.TabIndex = 1;
             this.label1.Text = "Transportation Details";
             // 
-            // radioButton1
+            // teral
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton1.Location = new System.Drawing.Point(29, 33);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(103, 17);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Bilateral Delivery";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.teral.AutoSize = true;
+            this.teral.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.teral.Location = new System.Drawing.Point(29, 33);
+            this.teral.Name = "teral";
+            this.teral.Size = new System.Drawing.Size(103, 17);
+            this.teral.TabIndex = 5;
+            this.teral.TabStop = true;
+            this.teral.Text = "Bilateral Delivery";
+            this.teral.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // otherRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton2.Location = new System.Drawing.Point(81, 79);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(51, 17);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Other";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.otherRadioButton.AutoSize = true;
+            this.otherRadioButton.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.otherRadioButton.Location = new System.Drawing.Point(81, 79);
+            this.otherRadioButton.Name = "otherRadioButton";
+            this.otherRadioButton.Size = new System.Drawing.Size(51, 17);
+            this.otherRadioButton.TabIndex = 6;
+            this.otherRadioButton.TabStop = true;
+            this.otherRadioButton.Text = "Other";
+            this.otherRadioButton.UseVisualStyleBackColor = true;
+            this.otherRadioButton.CheckedChanged += new System.EventHandler(this.OtherRadioButton_CheckedChanged);
             // 
             // radioButton3
             // 
@@ -103,18 +106,18 @@ namespace DistributionManager
             this.label2.TabIndex = 8;
             this.label2.Text = "Factual delivery address is different from legal one?";
             // 
-            // Yes
+            // yesRadioButton
             // 
-            this.Yes.AutoSize = true;
-            this.Yes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Yes.Location = new System.Drawing.Point(389, 33);
-            this.Yes.Name = "Yes";
-            this.Yes.Size = new System.Drawing.Size(43, 17);
-            this.Yes.TabIndex = 9;
-            this.Yes.TabStop = true;
-            this.Yes.Text = "Yes";
-            this.Yes.UseVisualStyleBackColor = true;
-            this.Yes.CheckedChanged += new System.EventHandler(this.Yes_CheckedChanged);
+            this.yesRadioButton.AutoSize = true;
+            this.yesRadioButton.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.yesRadioButton.Location = new System.Drawing.Point(389, 33);
+            this.yesRadioButton.Name = "yesRadioButton";
+            this.yesRadioButton.Size = new System.Drawing.Size(43, 17);
+            this.yesRadioButton.TabIndex = 9;
+            this.yesRadioButton.TabStop = true;
+            this.yesRadioButton.Text = "Yes";
+            this.yesRadioButton.UseVisualStyleBackColor = true;
+            this.yesRadioButton.CheckedChanged += new System.EventHandler(this.Yes_CheckedChanged);
             // 
             // radioButton4
             // 
@@ -128,21 +131,21 @@ namespace DistributionManager
             this.radioButton4.Text = "No";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // factualDeliveryLbl
             // 
-            this.label3.Location = new System.Drawing.Point(467, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 38);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Enter factual delivery address:";
+            this.factualDeliveryLbl.Location = new System.Drawing.Point(467, 35);
+            this.factualDeliveryLbl.Name = "factualDeliveryLbl";
+            this.factualDeliveryLbl.Size = new System.Drawing.Size(110, 38);
+            this.factualDeliveryLbl.TabIndex = 11;
+            this.factualDeliveryLbl.Text = "Enter factual delivery address:";
             // 
-            // textBox1
+            // factualDeliveryAddressTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(602, 35);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 38);
-            this.textBox1.TabIndex = 12;
+            this.factualDeliveryAddressTextBox.Location = new System.Drawing.Point(602, 35);
+            this.factualDeliveryAddressTextBox.Multiline = true;
+            this.factualDeliveryAddressTextBox.Name = "factualDeliveryAddressTextBox";
+            this.factualDeliveryAddressTextBox.Size = new System.Drawing.Size(186, 38);
+            this.factualDeliveryAddressTextBox.TabIndex = 12;
             // 
             // label4
             // 
@@ -225,20 +228,40 @@ namespace DistributionManager
             this.button1.Text = "Back to beneficiary selection";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // deliveryTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(151, 79);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(221, 20);
-            this.textBox4.TabIndex = 23;
+            this.deliveryTextBox.Location = new System.Drawing.Point(151, 79);
+            this.deliveryTextBox.Multiline = true;
+            this.deliveryTextBox.Name = "deliveryTextBox";
+            this.deliveryTextBox.Size = new System.Drawing.Size(221, 20);
+            this.deliveryTextBox.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(153, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "XXXX-YY ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(39, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = " Distribution Request ";
             // 
             // TransportationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.deliveryTextBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
@@ -248,14 +271,14 @@ namespace DistributionManager
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.factualDeliveryAddressTextBox);
+            this.Controls.Add(this.factualDeliveryLbl);
             this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.Yes);
+            this.Controls.Add(this.yesRadioButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.otherRadioButton);
+            this.Controls.Add(this.teral);
             this.Controls.Add(this.label1);
             this.Name = "TransportationDetails";
             this.Tag = "";
@@ -269,14 +292,14 @@ namespace DistributionManager
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton teral;
+        private System.Windows.Forms.RadioButton otherRadioButton;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton Yes;
+        private System.Windows.Forms.RadioButton yesRadioButton;
         private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label factualDeliveryLbl;
+        private System.Windows.Forms.TextBox factualDeliveryAddressTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
@@ -286,6 +309,8 @@ namespace DistributionManager
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox deliveryTextBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

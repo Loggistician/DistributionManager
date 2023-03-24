@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace DistributionManager
 {
-    public partial class Item_List : Form
+    public partial class Item_Selection : Form
     {
-        public Item_List()
+        public Item_Selection()
         {
             InitializeComponent();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Item_List_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
