@@ -5,7 +5,7 @@ namespace DistributionManager.Connection
 {
     class Connector
     {
-        const string CONNECTION_STRING = @"Data Source=HOME-PC\SQLEXPRESS;Initial Catalog=Distribution_Management;Integrated Security=True";
+        const string CONNECTION_STRING = @"Data Source=DESKTOP-NN2AVJ6\SQLEXPRESS;Initial Catalog=Distribution_Managemaent;Integrated Security=True";
         static SqlConnection SQL_CONNECTION = new SqlConnection(CONNECTION_STRING);
 
         public static SqlConnection Sql_Connection { get { return SQL_CONNECTION; } }

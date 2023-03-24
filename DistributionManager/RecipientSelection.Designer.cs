@@ -31,7 +31,7 @@ namespace DistributionManager
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.requestNumberLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.nameLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@ namespace DistributionManager
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.backToMenuBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.findLegalDataBtn = new System.Windows.Forms.Button();
             this.legalNameEngTextBox = new System.Windows.Forms.TextBox();
@@ -74,14 +74,14 @@ namespace DistributionManager
             this.label2.TabIndex = 1;
             this.label2.Text = " Distribution Request ";
             // 
-            // label3
+            // requestNumberLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(398, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "XXXX-YY ";
+            this.requestNumberLbl.AutoSize = true;
+            this.requestNumberLbl.Location = new System.Drawing.Point(398, 36);
+            this.requestNumberLbl.Name = "requestNumberLbl";
+            this.requestNumberLbl.Size = new System.Drawing.Size(55, 13);
+            this.requestNumberLbl.TabIndex = 2;
+            this.requestNumberLbl.Text = "XXXX-YY ";
             // 
             // label4
             // 
@@ -198,14 +198,15 @@ namespace DistributionManager
             this.label14.TabIndex = 18;
             this.label14.Text = "Legal Address Eng:";
             // 
-            // button1
+            // backToMenuBtn
             // 
-            this.button1.Location = new System.Drawing.Point(219, 395);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 43);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
+            this.backToMenuBtn.Location = new System.Drawing.Point(219, 395);
+            this.backToMenuBtn.Name = "backToMenuBtn";
+            this.backToMenuBtn.Size = new System.Drawing.Size(98, 43);
+            this.backToMenuBtn.TabIndex = 19;
+            this.backToMenuBtn.Text = "Back";
+            this.backToMenuBtn.UseVisualStyleBackColor = true;
+            this.backToMenuBtn.Click += new System.EventHandler(this.BackToMenuBtn_Click);
             // 
             // button2
             // 
@@ -297,13 +298,12 @@ namespace DistributionManager
             this.Controls.Add(this.legalNameEngTextBox);
             this.Controls.Add(this.findLegalDataBtn);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.backToMenuBtn);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.edrpouTextBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.positionLbl);
@@ -311,9 +311,10 @@ namespace DistributionManager
             this.Controls.Add(this.label6);
             this.Controls.Add(this.nameLbl);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.requestNumberLbl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.edrpouTextBox);
             this.Name = "RecipientSelection";
             this.Text = "Recipient_Selection";
             this.Load += new System.EventHandler(this.Recipient_Selection_Load);
@@ -326,7 +327,7 @@ namespace DistributionManager
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label requestNumberLbl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label nameLbl;
         private System.Windows.Forms.Label label6;
@@ -340,7 +341,7 @@ namespace DistributionManager
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button backToMenuBtn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button findLegalDataBtn;
         private System.Windows.Forms.TextBox legalNameEngTextBox;

@@ -16,7 +16,9 @@ namespace DistributionManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TransportationDetails());
+
+            Application.Run(new MainMenuForm());
+
         }
     }
 }

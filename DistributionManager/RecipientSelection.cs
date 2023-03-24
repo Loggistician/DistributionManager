@@ -1,32 +1,31 @@
 ﻿using DistributionManager.Connection;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DistributionManager
 {
     public partial class RecipientSelection : Form
     {
+        private int edrpouNumber;
+        private string requestNumber;
+
         public RecipientSelection()
         {
             InitializeComponent();
         }
 
-        private (string, string, string) getUserDataByEmail(string email)
+        private (string, string, string, int?) GetUserDataByEmail(string email)
         {
-            SqlCommand userDataCommand = new SqlCommand($"SELECT Employee.Name, Surname, Position.Name AS PositionName FROM Employee INNER JOIN Position ON Employee.PositionId = Position.PositionId WHERE Email LIKE '{email}'",
+            SqlCommand userDataCommand = new SqlCommand($"SELECT Employee.EmployeeId, Employee.Name, Surname, Position.Name AS PositionName FROM Employee INNER JOIN Position ON Employee.PositionId = Position.PositionId WHERE Email LIKE '{email}'",
             Connector.Sql_Connection);
 
             SqlDataReader userDataReader = null;
 
             string name = "", surname = "", position = "";
+            int? employeeId = null;
 
             try
             {
@@ -36,6 +35,7 @@ namespace DistributionManager
                     name = Convert.ToString(userDataReader["Name"]);
                     surname = Convert.ToString(userDataReader["Surname"]);
                     position = Convert.ToString(userDataReader["PositionName"]);
+                    employeeId = Convert.ToInt32(userDataReader["EmployeeId"]);
                 }
             }
             catch (Exception ex)
@@ -44,17 +44,95 @@ namespace DistributionManager
             }
             finally
             {
-                if (userDataReader != null)
-                    userDataReader.Close();
+                userDataReader?.Close();
             }
 
-            return (name, surname, position);
+            return (name, surname, position, employeeId);
         }
 
-        private void GenerateRequestNumber()
+        private string GetLastRequestNumber()
+        {
+            SqlCommand lastRequestNumberCommand = new SqlCommand("SELECT TOP 1 RequestNumber FROM DistributionRequest ORDER BY RequestNumber DESC", Connector.Sql_Connection);
+            SqlDataReader lastRequestNumberReader = null;
+
+            string lastRequestNumber = "";
+
+            try
+            {
+                lastRequestNumberReader = lastRequestNumberCommand.ExecuteReader();
+                if (lastRequestNumberReader.Read())
+                {
+                    lastRequestNumber = Convert.ToString(lastRequestNumberReader["RequestNumber"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                lastRequestNumberReader?.Close();
+            }
+
+            return lastRequestNumber;
+        }
+
+        private string GenerateRequestNumber()
         {
             int currentYear = DateTime.Now.Year % 100;
+            string lastNumber = GetLastRequestNumber();
+            return lastNumber == "" ? $"1-{currentYear}" : $"{Convert.ToInt32(GetLastRequestNumber().Split('-').First()) + 1}-{currentYear}";
+        }
 
+        public int? GetRecipientIdByRequestNumber(int edrpou)
+        {
+            SqlCommand recipientIdCommand = new SqlCommand($"SELECT RecipientId FROM Recipient WHERE EDRPOUcode = {edrpou}", Connector.Sql_Connection);
+            SqlDataReader recipientIdReader = null;
+
+            int? recipientId = null;
+
+            try
+            {
+                recipientIdReader = recipientIdCommand.ExecuteReader();
+                if (recipientIdReader.Read())
+                {
+                    recipientId = Convert.ToInt32(recipientIdReader["RecipientId"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                recipientIdReader?.Close();
+            }
+
+            return recipientId;
+        }
+
+        public void SaveDistributionRequestData(string requestNumber, int? employeeId, string status)
+        {
+            SqlCommand newRequestCommand = new SqlCommand($"INSERT INTO DistributionRequest(RequestNumber, EmployeeId, Status) VALUES (@RequestNumber, @EmployeeId, @Status)", Connector.Sql_Connection);
+
+            SqlDataReader newRequestReader = null;
+
+            try
+            {
+                newRequestCommand.Parameters.AddWithValue("RequestNumber", requestNumber);
+                newRequestCommand.Parameters.AddWithValue("EmployeeId", employeeId);
+                newRequestCommand.Parameters.AddWithValue("Status", status);
+
+                newRequestReader = newRequestCommand.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                newRequestReader?.Close();
+            }
         }
 
         private void Recipient_Selection_Load(object sender, EventArgs e)
@@ -63,11 +141,15 @@ namespace DistributionManager
 
             var testEmail = "test@gmail.com";
             /*{ testEmail*//*RegisterForm.Email*//*}*/ //TODO
-            (string name, string surname, string position) = getUserDataByEmail(testEmail);
+            (string name, string surname, string position, int? employeeId) = GetUserDataByEmail(testEmail);
+            requestNumber = GenerateRequestNumber();
 
             nameLbl.Text = name;
             surnameLbl.Text = surname;
             positionLbl.Text = position;
+            requestNumberLbl.Text = requestNumber;
+
+            SaveDistributionRequestData(requestNumber, employeeId, "");
         }
 
         private (string, string, string, string) FindLegalDataByEdrpou(int edrpou)
@@ -103,14 +185,39 @@ namespace DistributionManager
             return (legalNameEng, legalNameUkr, legalAddressEng, legalAddressUkr);
         }
 
+        private void UpdateRecipientIdByRequestNumber(int? recipientId)
+        {
+            try
+            {
+                SqlDataAdapter setRecipientId = new SqlDataAdapter($"UPDATE DistributionRequest SET RecipientId = {recipientId} WHERE RequestNumber = '{requestNumber}'", Connector.Sql_Connection);
+                DataSet recipientIdDataSet = new DataSet();
+                setRecipientId.Fill(recipientIdDataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void FindLegalDataBtn_Click(object sender, EventArgs e)
         {
             int.TryParse(edrpouTextBox.Text, out int edrpou);
             (string legalNameEng, string legalNameUkr, string legalAddressEng, string legalAddressUkr) = FindLegalDataByEdrpou(edrpou);
+            edrpouNumber = edrpou;
+
             legalNameEngTextBox.Text = legalNameEng;
             legalNameUkrTextBox.Text = legalNameUkr;
             legalAddressEngTextBox.Text = legalAddressEng;
             legalAddressUkrTextBox.Text = legalAddressUkr;
+
+            int? recipientId = GetRecipientIdByRequestNumber(edrpouNumber);
+            UpdateRecipientIdByRequestNumber(recipientId);
+        }
+
+        private void BackToMenuBtn_Click(object sender, EventArgs e)
+        {
+            new MainMenuForm().Show();
+            //Hide();
         }
     }
 }
