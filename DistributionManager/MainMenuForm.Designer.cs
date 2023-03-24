@@ -31,7 +31,7 @@ namespace DistributionManager
         {
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.newDistributionRequestBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -53,15 +53,15 @@ namespace DistributionManager
             this.label1.TabIndex = 1;
             this.label1.Text = "User Name";
             // 
-            // button1
+            // newDistributionRequestBtn
             // 
-            this.button1.Location = new System.Drawing.Point(341, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 64);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "New Distribution Request";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.newDistributionRequestBtn.Location = new System.Drawing.Point(341, 44);
+            this.newDistributionRequestBtn.Name = "newDistributionRequestBtn";
+            this.newDistributionRequestBtn.Size = new System.Drawing.Size(133, 64);
+            this.newDistributionRequestBtn.TabIndex = 2;
+            this.newDistributionRequestBtn.Text = "New Distribution Request";
+            this.newDistributionRequestBtn.UseVisualStyleBackColor = true;
+            this.newDistributionRequestBtn.Click += new System.EventHandler(this.NewDistributionRequestBtn_Click);
             // 
             // button2
             // 
@@ -71,7 +71,6 @@ namespace DistributionManager
             this.button2.TabIndex = 3;
             this.button2.Text = "Draft Distribution Requests";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -89,7 +88,7 @@ namespace DistributionManager
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.newDistributionRequestBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkedListBox1);
             this.Name = "MainMenuForm";
@@ -104,7 +103,7 @@ namespace DistributionManager
 
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button newDistributionRequestBtn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
     }
