@@ -27,5 +27,10 @@ namespace DistributionManager
             new RecipientSelection().Show();
             Hide();
         }
+
+        private void ShowDraftRequestsBtn_Click(object sender, EventArgs e)
+        {
+            new DraftDistributionRequests().Show();
+        }
     }
 }
