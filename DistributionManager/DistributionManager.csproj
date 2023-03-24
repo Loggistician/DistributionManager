@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection\Connector.cs" />
+    <Compile Include="DraftDistributionRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DraftDistributionRequests.Designer.cs">
+      <DependentUpon>DraftDistributionRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="TransportationDetails.Designer.cs">
       <DependentUpon>TransportationDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DraftDistributionRequests.resx">
+      <DependentUpon>DraftDistributionRequests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Item List.resx">
       <DependentUpon>Item List.cs</DependentUpon>
     </EmbeddedResource>

@@ -304,7 +304,6 @@ namespace DistributionManager
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.edrpouTextBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.positionLbl);
@@ -315,6 +314,7 @@ namespace DistributionManager
             this.Controls.Add(this.requestNumberLbl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.edrpouTextBox);
             this.Name = "RecipientSelection";
             this.Text = "Recipient_Selection";
             this.Load += new System.EventHandler(this.Recipient_Selection_Load);
