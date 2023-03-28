@@ -1,4 +1,4 @@
-﻿using DistributionManager.Connection;
+﻿using DistributionManager.Persistance.Connection;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace DistributionManager
 {
-    public partial class DraftDistributionRequests : Form
+    public partial class DraftRequestsForm : Form
     {
-        public DraftDistributionRequests()
+        public DraftRequestsForm()
         {
             InitializeComponent();
         }

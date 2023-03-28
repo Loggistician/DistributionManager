@@ -1,6 +1,6 @@
 ﻿namespace DistributionManager
 {
-    partial class DraftDistributionRequests
+    partial class DraftRequestsForm
     {
         /// <summary>
         /// Required designer variable.

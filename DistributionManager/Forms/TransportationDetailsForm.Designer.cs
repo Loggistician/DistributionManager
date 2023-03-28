@@ -1,7 +1,7 @@
 ﻿
 namespace DistributionManager
 {
-    partial class TransportationDetails
+    partial class TransportationDetailsForm
     {
         /// <summary>
         /// Required designer variable.

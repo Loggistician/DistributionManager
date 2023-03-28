@@ -1,7 +1,7 @@
 ﻿
 namespace DistributionManager
 {
-    partial class RecipientSelection
+    partial class RecipientSelectionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,7 @@ namespace DistributionManager
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.backToMenuBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.toTransportationFormBtn = new System.Windows.Forms.Button();
             this.findLegalDataBtn = new System.Windows.Forms.Button();
             this.legalNameEngTextBox = new System.Windows.Forms.TextBox();
             this.legalAddressEngTextBox = new System.Windows.Forms.TextBox();
@@ -208,14 +208,15 @@ namespace DistributionManager
             this.backToMenuBtn.UseVisualStyleBackColor = true;
             this.backToMenuBtn.Click += new System.EventHandler(this.BackToMenuBtn_Click);
             // 
-            // button2
+            // toTransportationFormBtn
             // 
-            this.button2.Location = new System.Drawing.Point(447, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 43);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Save and proceed to transportation details";
-            this.button2.UseVisualStyleBackColor = true;
+            this.toTransportationFormBtn.Location = new System.Drawing.Point(447, 395);
+            this.toTransportationFormBtn.Name = "toTransportationFormBtn";
+            this.toTransportationFormBtn.Size = new System.Drawing.Size(118, 43);
+            this.toTransportationFormBtn.TabIndex = 20;
+            this.toTransportationFormBtn.Text = "Save and proceed to transportation details";
+            this.toTransportationFormBtn.UseVisualStyleBackColor = true;
+            this.toTransportationFormBtn.Click += new System.EventHandler(this.ToTransportationFormBtn_Click);
             // 
             // findLegalDataBtn
             // 
@@ -297,7 +298,7 @@ namespace DistributionManager
             this.Controls.Add(this.legalAddressEngTextBox);
             this.Controls.Add(this.legalNameEngTextBox);
             this.Controls.Add(this.findLegalDataBtn);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.toTransportationFormBtn);
             this.Controls.Add(this.backToMenuBtn);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -342,7 +343,7 @@ namespace DistributionManager
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button backToMenuBtn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button toTransportationFormBtn;
         private System.Windows.Forms.Button findLegalDataBtn;
         private System.Windows.Forms.TextBox legalNameEngTextBox;
         private System.Windows.Forms.TextBox legalAddressEngTextBox;

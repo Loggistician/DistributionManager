@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DistributionManager
 {
-    public partial class TransportationDetails : Form
+    public partial class TransportationDetailsForm : Form
     {
-        public TransportationDetails()
+        public TransportationDetailsForm()
         {
             InitializeComponent();
         }

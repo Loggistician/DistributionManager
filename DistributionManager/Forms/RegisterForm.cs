@@ -1,5 +1,4 @@
-﻿using DistributionManager.Connection;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace DistributionManager
@@ -15,7 +14,7 @@ namespace DistributionManager
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            await Connector.Sql_Connection.OpenAsync();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
