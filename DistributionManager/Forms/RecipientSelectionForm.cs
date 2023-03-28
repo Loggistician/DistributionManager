@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace DistributionManager
 {
-    public partial class RecipientSelection : Form
+    public partial class RecipientSelectionForm : Form
     {
         private int edrpouNumber;
         private string requestNumber;
 
-        public RecipientSelection()
+        public RecipientSelectionForm()
         {
             InitializeComponent();
         }
@@ -218,6 +218,11 @@ namespace DistributionManager
         {
             new MainMenuForm().Show();
             //Hide();
+        }
+
+        private void ToTransportationFormBtn_Click(object sender, EventArgs e)
+        {
+            new Tra
         }
     }
 }

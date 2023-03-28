@@ -47,63 +47,54 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection\Connector.cs" />
-    <Compile Include="DraftDistributionRequests.cs">
+    <Compile Include="Forms\DraftRequestsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DraftDistributionRequests.Designer.cs">
-      <DependentUpon>DraftDistributionRequests.cs</DependentUpon>
+    <Compile Include="Forms\DraftRequestsForm.Designer.cs">
+      <DependentUpon>DraftRequestsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Item List.cs">
+    <Compile Include="Forms\ItemListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Item List.Designer.cs">
-      <DependentUpon>Item List.cs</DependentUpon>
+    <Compile Include="Forms\ItemListForm.Designer.cs">
+      <DependentUpon>ItemListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Item Selection.cs">
+    <Compile Include="Forms\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Item Selection.Designer.cs">
-      <DependentUpon>Item Selection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegisterForm.Designer.cs">
+    <Compile Include="Forms\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForm.cs">
+    <Compile Include="Forms\MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForm.Designer.cs">
+    <Compile Include="Forms\MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecipientSelection.cs">
+    <Compile Include="Forms\RecipientSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecipientSelection.Designer.cs">
-      <DependentUpon>RecipientSelection.cs</DependentUpon>
+    <Compile Include="Forms\RecipientSelectionForm.Designer.cs">
+      <DependentUpon>RecipientSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransportationDetails.cs">
+    <Compile Include="Forms\TransportationDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransportationDetails.Designer.cs">
-      <DependentUpon>TransportationDetails.cs</DependentUpon>
+    <Compile Include="Forms\TransportationDetailsForm.Designer.cs">
+      <DependentUpon>TransportationDetailsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DraftDistributionRequests.resx">
-      <DependentUpon>DraftDistributionRequests.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DraftRequestsForm.resx">
+      <DependentUpon>DraftRequestsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Item List.resx">
-      <DependentUpon>Item List.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ItemListForm.resx">
+      <DependentUpon>ItemListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Item Selection.resx">
-      <DependentUpon>Item Selection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RegisterForm.resx">
+    <EmbeddedResource Include="Forms\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForm.resx">
+    <EmbeddedResource Include="Forms\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,11 +106,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RecipientSelection.resx">
-      <DependentUpon>RecipientSelection.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RecipientSelectionForm.resx">
+      <DependentUpon>RecipientSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransportationDetails.resx">
-      <DependentUpon>TransportationDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\TransportationDetailsForm.resx">
+      <DependentUpon>TransportationDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
